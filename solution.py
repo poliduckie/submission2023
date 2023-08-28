@@ -183,7 +183,7 @@ class RandomAgent:
             return
         
         #Compute action
-        action = runMpc(state, self.reference)
+        action = runMpc(self.state, self.reference)
 
         #Clip the steering
         action[1] = np.clip(action[1], -STEERING_CLIPPING, STEERING_CLIPPING)
@@ -191,7 +191,10 @@ class RandomAgent:
         pwm_left, pwm_right = action
 
         #Update state
-        state = self.F.step(*state.toarray().reshape(-1), action)
+        self.state = self.F.step(*self.state.toarray().reshape(-1), action)
+
+        #Recenter state
+        self.state = ca.DM([0, 0, np.pi / 2, self.state[-2], self.state[-1]])
 
         grey = RGB(0.0, 0.0, 0.0)
         led_commands = LEDSCommands(grey, grey, grey, grey, grey)
