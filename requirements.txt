@@ -1,0 +1,4 @@
+pipdeptree
+aido-protocols-daffy
+duckietown-utils-daffy
+poliduckie-segmentation
