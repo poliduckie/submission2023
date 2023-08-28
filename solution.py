@@ -29,7 +29,7 @@ VERTICAL_CUTOFF = 150
 STEERING_CLIPPING = 3
 
 # TODO FIX
-matrixPath = '../BirdEyeMatrices/SegmentationOutput.pkl'
+matrixPath = '/code/BirdEyeMatrices/SegmentationOutput.pkl'
 
 seg = Segmentation()
 birdeye = BirdEyeView(path = matrixPath)

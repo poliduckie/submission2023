@@ -2,3 +2,5 @@ pipdeptree
 aido-protocols-daffy
 duckietown-utils-daffy
 poliduckie-segmentation
+numpy==1.22.1
+scikit-learn
