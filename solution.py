@@ -140,7 +140,7 @@ class RandomAgent:
         self.n = 0
         self.state = ca.DM([0,0,np.pi / 2,0,0])
         self.F = Model()
-        self.reference = None
+        self.reference = []
         context.info("init()")
 
     def on_received_seed(self, data: int):
@@ -179,7 +179,7 @@ class RandomAgent:
     def on_received_get_commands(self, context: Context, data: GetCommands):
         self.n += 1
 
-        if not self.reference:
+        if self.reference == []:
             return
         
         #Compute action
